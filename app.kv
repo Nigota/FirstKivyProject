@@ -1,0 +1,50 @@
+<NavigationItem>
+    theme_text_color: 'Custom'
+    divider: None
+
+    IconLeftWidget:
+        icon: root.icon
+
+NavigationLayout:
+    nav_drawer: nav_drawer
+    screen_mg: screen_mg
+
+    ScreenManager:
+        id: screen_mg
+
+    MDNavigationDrawer:
+        id: nav_drawer
+
+        ScrollView:
+            pos_hint: {"top": 1}
+
+            GridLayout:
+                id: box_item
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
+
+                NavigationItem:
+                    text: 'Главная'.encode('cp1251').decode('utf-8')
+                    icon: 'home-circle-outline'
+                    on_release:
+                        app.menu()
+                        app.root.nav_drawer.set_state()
+
+                NavigationItem:
+                    text: 'Проверить обновления'.encode('cp1251').decode('utf-8')
+                    icon: 'update'
+                    on_release:
+                        app.root.nav_drawer.set_state()
+
+                NavigationItem:
+                    text: 'Настройки'.encode('cp1251').decode('utf-8')
+                    icon: 'settings-outline'
+                    on_release:
+                        app.root.nav_drawer.set_state()
+
+                NavigationItem:
+                    text: 'Выход'.encode('cp1251').decode('utf-8')
+                    icon: 'exit-to-app'
+                    on_release:
+                        app.stop()
