@@ -1,5 +1,5 @@
 # FirstKivyProject
-It's my first kivy project on android.
+It's my first kivy project on android, but now it doesn't work on andoroid. You can run the project only on pc.
 
 # Installation
 **Dependencies:**
