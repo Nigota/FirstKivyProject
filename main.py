@@ -35,7 +35,7 @@ class Menu(Screen):
 
 class Settings(Screen):
     '''Экран настроек'''
-    Builder.load_file('applibs/kv/Setting.kv')
+    Builder.load_file('applibs/kv/Settings.kv')
 
 
 class OK(Screen):
