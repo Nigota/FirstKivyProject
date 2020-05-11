@@ -1,0 +1,118 @@
+#:import Tab applibs.baseclass.Tab
+
+<OK>:
+    tb: tb
+    tabs: tabs
+    BoxLayout:
+        orientation: 'vertical'
+
+        MDToolbar:
+            id: tb
+            left_action_items: [['arrow-left', lambda x: app.menu()]]
+            right_action_items: [['circle-edit-outline', lambda x: app.edit(root.name)]]
+            md_bg_color: app.theme_cls.primary_color
+
+        MDTabs:
+            id: tabs
+            tab1: tab1
+            tab2: tab2
+            tab3: tab3
+            tab_image: tab_image
+            Tab:
+                id: tab_image
+                image: image
+                text: 'book'
+
+                BoxLayout:
+                    orientation: 'vertical'
+
+                    Image:
+                        id: image
+                        size: self.texture_size
+
+            Tab:
+                id: tab1
+                label1: label1
+                text: 'pen'
+
+                BoxLayout:
+                    orientation: 'vertical'
+
+                    MDLabel:
+                        id: label1
+                        valign: 'center'
+                        text_size: self.size
+                        padding_x: 5
+
+                    MDTextField:
+                        id: text_input1
+                        font_size: '20sp'
+                        multiline: False
+                        input_tupe: 'number'
+                        input_filter: 'int'
+                        hint_text: "Введите ответ".encode('cp1251').decode('utf-8')
+
+                    MDFillRoundFlatButton:
+                        text: 'Ответить'.encode('cp1251').decode('utf-8')
+                        pos_hint: {"center_x": .5}
+                        on_release:
+                            root.answer(root.name, "tab1", text_input1.text)
+                            text_input1.text = ""
+
+            Tab:
+                id: tab2
+                label2: label2
+                text: 'pen'
+
+                BoxLayout:
+                    orientation: 'vertical'
+
+                    MDLabel:
+                        id: label2
+                        valign: 'center'
+                        text_size: self.size
+                        padding_x: 5
+
+                    MDTextField:
+                        id: text_input2
+                        font_size: '20sp'
+                        multiline: False
+                        input_tupe: 'number'
+                        input_filter: 'int'
+                        hint_text: "Введите ответ".encode('cp1251').decode('utf-8')
+
+                    MDFillRoundFlatButton:
+                        text: 'Ответить'.encode('cp1251').decode('utf-8')
+                        pos_hint: {"center_x": .5}
+                        on_release:
+                            root.answer(root.name, "tab2", text_input2.text)
+                            text_input2.text = ""
+
+            Tab:
+                id: tab3
+                label3: label3
+                text: 'pen'
+
+                BoxLayout:
+                    orientation: 'vertical'
+
+                    MDLabel:
+                        id: label3
+                        valign: 'center'
+                        text_size: self.size
+                        padding_x: 5
+
+                    MDTextField:
+                        id: text_input3
+                        font_size: '20sp'
+                        multiline: False
+                        input_tupe: 'number'
+                        input_filter: 'int'
+                        hint_text: "Введите ответ".encode('cp1251').decode('utf-8')
+
+                    MDFillRoundFlatButton:
+                        text: 'Ответить'.encode('cp1251').decode('utf-8')
+                        pos_hint: {"center_x": .5}
+                        on_release:
+                            root.answer(root.name, "tab3", text_input3.text)
+                            text_input3.text = ""

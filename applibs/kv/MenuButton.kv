@@ -1,0 +1,9 @@
+<MenuButton>:
+    halign: 'center'
+    valign: 'center'
+    text_size: self.size
+    font_size: self.width * 0.13
+    padding_x: 5
+    on_release:
+        app.root.screen_mg.transition.direction = 'left'
+        app.open_ok(app.root.screen_mg.get_screen("Menu").ids.buttons.children.index(self))

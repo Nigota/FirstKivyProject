@@ -1,0 +1,100 @@
+#:import Tab applibs.baseclass.Tab
+
+<EditOK>:
+    tb: tb
+    tabs: tabs
+    BoxLayout:
+        orientation: 'vertical'
+
+        MDToolbar:
+            id: tb
+            left_action_items: [['arrow-left', lambda x: app.back()]]
+            right_action_items: [['content-save', lambda x: app.save()]]
+            md_bg_color: app.theme_cls.primary_color
+
+        MDTabs:
+            id: tabs
+            tab1: tab1
+            tab2: tab2
+            tab3: tab3
+            tab_image: tab_image
+            Tab:
+                id: tab_image
+                image: image
+                text: 'book'
+
+                BoxLayout:
+                    orientation: 'vertical'
+
+                    Image:
+                        id: image
+                        size: self.texture_size
+
+            Tab:
+                id: tab1
+                task1: task1
+                answer1: answer1
+                text: 'pen'
+
+                BoxLayout:
+                    orientation: 'vertical'
+
+                    TextInput:
+                        id: task1
+                        background_normal: 'applibs/images/light.jpg'
+                        background_active: 'applibs/images/light.jpg'
+                        readonly: False
+
+                    MDTextField:
+                        id: answer1
+                        font_size: '20sp'
+                        multiline: False
+                        input_tupe: 'number'
+                        input_filter: 'int'
+                        hint_text: "Введите новый ответ".encode('cp1251').decode('utf-8')
+
+            Tab:
+                id: tab2
+                task2: task2
+                answer2: answer2
+                text: 'pen'
+
+                BoxLayout:
+                    orientation: 'vertical'
+
+                    TextInput:
+                        id: task2
+                        background_normal: 'applibs/images/light.jpg'
+                        background_active: 'applibs/images/light.jpg'
+                        readonly: False
+
+                    MDTextField:
+                        id: answer2
+                        font_size: '20sp'
+                        multiline: False
+                        input_tupe: 'number'
+                        input_filter: 'int'
+                        hint_text: "Введите новый ответ".encode('cp1251').decode('utf-8')
+
+            Tab:
+                id: tab3
+                task3: task3
+                answer3: answer3
+                text: 'pen'
+
+                BoxLayout:
+                    orientation: 'vertical'
+
+                    TextInput:
+                        id: task3
+                        background_normal: 'applibs/images/light.jpg'
+                        background_active: 'applibs/images/light.jpg'
+                        readonly: False
+
+                    MDTextField:
+                        id: answer3
+                        font_size: '20sp'
+                        multiline: False
+                        input_tupe: 'number'
+                        input_filter: 'int'
+                        hint_text: "Введите новый ответ".encode('cp1251').decode('utf-8')

@@ -1,0 +1,51 @@
+#:import Factory kivy.factory.Factory
+#:import Popup kivy.uix.popup
+
+<MyPopup@Popup>:
+    auto_dismiss: True
+    background: "images/light.jpg"
+    title: "Новый конспект".encode('cp1251').decode('utf-8')
+    title_color: [0, 0, 0, 1]
+    title_align: 'center'
+    title_size: 16
+    separator_color: app.theme_cls.primary_color
+    size_hint: (.75, .6)
+    BoxLayout:
+        orientation: "vertical"
+        MDTextField:
+            id: name_of_ok
+            hint_text: "Название конспекта".encode('cp1251').decode('utf-8')
+        MDRectangleFlatButton:
+            text: "Добавить".encode('cp1251').decode('utf-8')
+            pos_hint: {"center_x": .5}
+            on_release:
+                app.add_new_ok(name_of_ok.text)
+                root.dismiss()
+
+<Menu>:
+    sv: sv
+    BoxLayout:
+        orientation: 'vertical'
+
+        MDToolbar:
+            title: 'Тема'.encode('cp1251').decode('utf-8')
+            md_bg_color: app.theme_cls.primary_color
+            left_action_items:
+                [['menu', lambda x: app.root.nav_drawer.set_state()]]
+            right_action_items:
+                [['plus', lambda x: Factory.MyPopup().open()]]
+
+        ScrollView:
+            id: sv
+            buttons: buttons
+            GridLayout:
+                id: buttons
+                cols: 2
+                row_default_height:
+                    (self.width - self.cols*self.spacing[0])/self.cols
+                row_force_default: True
+                size_hint_y: None
+                height: self.minimum_height
+                padding: dp(4), dp(4)
+                spacing: dp(4)
+
